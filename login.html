@@ -8,27 +8,18 @@
 
 <h2>Login</h2>
 
-<form onsubmit="loginUser(event)" autocomplete="off">
+<form onsubmit="login(event)" autocomplete="off">
 
   <input type="text" style="display:none">
   <input type="password" style="display:none">
 
-  <input
-    type="text"
-    id="loginInput"
-    placeholder="Email or Phone"
-    autocomplete="off"><br>
+  <input id="email" placeholder="Email"><br>
+  <input id="password" type="password" placeholder="Password"><br>
 
-  <input
-    type="password"
-    id="loginPassword"
-    placeholder="Password"
-    autocomplete="off"><br>
-
-  <button type="submit">Login</button>
+  <button>Login</button>
 </form>
 
-<p id="error"></p>
+<p id="msg"></p>
 
 <script src="js/login.js"></script>
 </body>

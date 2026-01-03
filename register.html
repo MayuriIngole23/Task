@@ -8,25 +8,31 @@
 
 <h2>Register</h2>
 
-<form onsubmit="registerUser(event)">
-  <input type="text" id="name" placeholder="First Middle Last"><br>
-  <input type="number" id="age" placeholder="Age"><br>
-  <input
-  type="tel"
-  id="phone"
-  placeholder="Phone Number"
-  maxlength="10"
-  oninput="this.value=this.value.replace(/[^0-9]/g,'')">
-<br>
-  <input type="email" id="email" placeholder="Email"><br>
-  <textarea id="address" placeholder="Address"></textarea><br>
-  <input type="number" id="pincode" placeholder="Pincode"><br>
-  <input type="password" id="password" placeholder="Password"><br>
+<form onsubmit="register(event)" autocomplete="off">
 
-  <button type="submit">Register</button>
+  <input id="name" placeholder="Full Name"><br>
+
+  <input id="age" type="number" placeholder="Age"><br>
+
+  <input
+    id="phone"
+    type="tel"
+    placeholder="Phone Number"
+    maxlength="10"
+    oninput="this.value=this.value.replace(/[^0-9]/g,'')"><br>
+
+  <input id="email" placeholder="Email"><br>
+
+  <textarea id="address" placeholder="Address"></textarea><br>
+
+  <input id="pincode" type="number" placeholder="Pincode"><br>
+
+  <input id="password" type="password" placeholder="Password"><br>
+
+  <button>Register</button>
 </form>
 
-<p id="error"></p>
+<p id="msg"></p>
 
 <script src="js/register.js"></script>
 </body>

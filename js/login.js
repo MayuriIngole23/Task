@@ -1,31 +1,20 @@
-window.onload = function () {
-  const prefill = localStorage.getItem("loginPrefill");
-  if (prefill) {
-    document.getElementById("loginInput").value = prefill;
-  }
-};
+function login(e) {
+  e.preventDefault();
 
-function loginUser(event) {
-  event.preventDefault();
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
 
-  const input = document.getElementById("loginInput").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
+  let user = JSON.parse(localStorage.getItem("user"));
 
-  const savedUser = JSON.parse(localStorage.getItem("userData"));
-
-  if (!savedUser) {
-    document.getElementById("error").innerText =
-      "No user found. Please register first.";
+  if (!user) {
+    document.getElementById("msg").innerText = "Please register first";
     return;
   }
 
-  if (
-    (input === savedUser.email || input === savedUser.phone) &&
-    password === savedUser.password
-  ) {
-    window.location.href = "user.html";
+  if (email === user.email && password === user.password) {
+    localStorage.setItem("loggedIn", "true");
+    window.location = "user.html";
   } else {
-    document.getElementById("error").innerText =
-      "Invalid login credentials!";
+    document.getElementById("msg").innerText = "Invalid login";
   }
 }

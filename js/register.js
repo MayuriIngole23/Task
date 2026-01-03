@@ -1,26 +1,33 @@
-function registerUser(event) {
-  event.preventDefault();
+function register(e) {
+  e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const age = document.getElementById("age").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value.trim();
-  const address = document.getElementById("address").value;
-  const pincode = document.getElementById("pincode").value;
-  const password = document.getElementById("password").value.trim();
+  let name = document.getElementById("name").value;
+  let age = document.getElementById("age").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let address = document.getElementById("address").value;
+  let pincode = document.getElementById("pincode").value;
+  let password = document.getElementById("password").value;
 
-  if (name === "" || email === "" || password === "") {
-    document.getElementById("error").innerText =
-      "Name, Email and Password are required!";
+  if (
+    name === "" || age === "" || phone === "" ||
+    email === "" || address === "" || pincode === "" || password === ""
+  ) {
+    document.getElementById("msg").innerText = "All fields are required";
     return;
   }
 
-  if (localStorage.getItem("userData")) {
-    alert("User already registered. Please login.");
+  if (phone.length !== 10) {
+    document.getElementById("msg").innerText = "Phone number must be 10 digits";
     return;
   }
 
-  const user = {
+  if (pincode.length !== 6) {
+    document.getElementById("msg").innerText = "Pincode must be 6 digits";
+    return;
+  }
+
+  let user = {
     name,
     age,
     phone,
@@ -30,8 +37,8 @@ function registerUser(event) {
     password
   };
 
-  localStorage.setItem("userData", JSON.stringify(user));
-  localStorage.setItem("loginPrefill", email);
+  localStorage.setItem("user", JSON.stringify(user));
+  localStorage.setItem("loggedIn", "true");
 
-  window.location.href = "login.html";
+  window.location = "login.html";
 }

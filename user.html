@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Data</title>
+  <title>User Profile</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <h2>User Profile</h2>
 
-<p><b>Name:</b> <span id="name"></span></p>
-<p><b>Age:</b> <span id="age"></span></p>
-<p><b>Phone:</b> <span id="phone"></span></p>
-<p><b>Email:</b> <span id="email"></span></p>
-<p><b>Address:</b> <span id="address"></span></p>
-<p><b>Pincode:</b> <span id="pincode"></span></p>
+<div id="view">
+  <p><b>Name:</b> <span id="vName"></span></p>
+  <p><b>Age:</b> <span id="vAge"></span></p>
+  <p><b>Phone:</b> <span id="vPhone"></span></p>
+  <p><b>Email:</b> <span id="vEmail"></span></p>
+  <p><b>Address:</b> <span id="vAddress"></span></p>
+  <p><b>Pincode:</b> <span id="vPincode"></span></p>
 
-<button onclick="logout()">Logout</button>
+  <button onclick="editProfile()">Update Profile</button>
+  <button onclick="openPopup()">Change Password</button>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div id="edit" style="display:none;">
+  <h3>Edit Profile</h3>
+
+  <input id="eName" placeholder="Full Name"><br>
+  <input id="eAge" type="number" placeholder="Age"><br>
+  <input id="ePhone" placeholder="Phone"><br>
+  <input id="eEmail" disabled><br>
+  <textarea id="eAddress" placeholder="Address"></textarea><br>
+  <input id="ePincode" placeholder="Pincode"><br>
+
+  <button onclick="saveProfile()">Update the Changes</button>
+  <button onclick="cancelEdit()">Cancel</button>
+</div>
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <h3>Change Password</h3>
+
+    <input type="password" id="newPass" placeholder="New Password"><br>
+    <input type="password" id="confirmPass" placeholder="Confirm Password"><br>
+
+    <label>
+      <input type="checkbox" id="confirmCheck">
+      I confirm to change my password
+    </label><br><br>
+
+    <button onclick="changePassword()">Update</button>
+    <button onclick="closePopup()">Cancel</button>
+
+    <p id="msg"></p>
+  </div>
+</div>
 
 <script src="js/user.js"></script>
 </body>
