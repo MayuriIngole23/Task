@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Login</h2>
+
+<form onsubmit="loginUser(event)" autocomplete="off">
+
+  <input type="text" style="display:none">
+  <input type="password" style="display:none">
+
+  <input
+    type="text"
+    id="loginInput"
+    placeholder="Email or Phone"
+    autocomplete="off"><br>
+
+  <input
+    type="password"
+    id="loginPassword"
+    placeholder="Password"
+    autocomplete="off"><br>
+
+  <button type="submit">Login</button>
+</form>
+
+<p id="error"></p>
+
+<script src="js/login.js"></script>
+</body>
+</html>
